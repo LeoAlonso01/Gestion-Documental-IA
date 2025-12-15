@@ -4,7 +4,10 @@ let currentUpload = null; // Variable global para almacenar información sobre l
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
+  // Firebase products SDKs for document management system
+  import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-storage.js";
+  import { getFirestore, collection, addDoc, getDocs, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+  import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
   // https://firebase.google.com/docs/web/setup#available-libraries
 
   // Your web app's Firebase configuration
@@ -22,6 +25,10 @@ let currentUpload = null; // Variable global para almacenar información sobre l
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
+  // Initialize Firebase services
+  const storage = getStorage(app);
+  const db = getFirestore(app);
+  const auth = getAuth(app);
 
 
 function uploadDocument() { // Función que se llama cuando el usuario intenta iniciar una carga.
