@@ -1,0 +1,113 @@
+/* Gestion Documental IA — main stylesheet */
+:root{
+	--bg:#f6f8fa;
+	--surface:#ffffff;
+	--primary:#0d6efd; /* Bootstrap primary */
+	--primary-600:#0b5ed7;
+	--accent:#6c757d;
+	--text:#0b1a2b;
+	--muted:#6c757d;
+	--success:#198754;
+	--danger:#dc3545;
+	--radius:10px;
+	--max-width:1100px;
+}
+
+/* Reset and base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+	margin:0;
+	font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+	background:linear-gradient(180deg,var(--bg),#eef3f8);
+	color:var(--text);
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+	line-height:1.45;
+}
+
+main.container{
+	max-width:var(--max-width);
+	background:var(--surface);
+	padding:28px;
+	border-radius:14px;
+	box-shadow:0 6px 20px rgba(15,23,42,0.06);
+}
+
+h1{font-size:1.6rem;margin:.25rem 0 0.6rem}
+p{margin:.25rem 0 1rem;color:var(--muted)}
+
+/* File upload styles */
+.file-upload{
+	display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:12px
+}
+.file-upload label{
+	display:inline-flex;align-items:center;gap:.6rem;padding:.5rem .8rem;border-radius:8px;background:#f8fafc;border:1px solid #e9eef6;color:var(--text);cursor:pointer;
+}
+.file-upload input[type="file"]{display:none}
+.file-upload button{
+	background:var(--primary);color:#fff;border:0;padding:.5rem .9rem;border-radius:8px;cursor:pointer;
+}
+.file-upload button:hover{background:var(--primary-600)}
+
+/* Dropzone for drag & drop */
+.dropzone{
+	border:2px dashed #dbe7f7;border-radius:12px;padding:18px;background:linear-gradient(180deg, rgba(13,110,253,0.03), transparent);text-align:center;color:var(--muted);
+}
+.dropzone.dragover{border-color:var(--primary);box-shadow:0 6px 18px rgba(13,110,253,0.08)}
+
+/* Dropzone inner content */
+.dropzone .drop-message{font-weight:600;color:var(--accent)}
+.dropzone .filename{margin-top:6px;color:var(--text);font-weight:600}
+.dropzone.has-file{border-style:solid;background:linear-gradient(180deg,#ffffff,#f7fbff)}
+
+/* Document list grid/cards */
+.doc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:18px}
+.doc-card{background:linear-gradient(180deg,#fff,#fbfdff);border-radius:12px;padding:14px;border:1px solid #eef4fb;box-shadow:0 3px 10px rgba(12,20,30,0.03);display:flex;flex-direction:column;gap:8px}
+.doc-card .title{font-weight:600;color:var(--text)}
+.doc-card .meta{font-size:.85rem;color:var(--muted)}
+.doc-card .actions{margin-top:auto;display:flex;gap:8px}
+
+/* Search & utilities */
+.search-bar{display:flex;gap:8px;align-items:center}
+.search-bar input{flex:1;padding:.45rem .6rem;border-radius:8px;border:1px solid #e6eef8}
+
+/* Buttons */
+.btn{font-weight:600;padding:.45rem .8rem;border-radius:8px;border:1px solid transparent;cursor:pointer}
+.btn-ghost{background:transparent;border:1px solid #e6eef8;color:var(--text)}
+.btn-primary{background:var(--primary);color:#fff}
+.btn-danger{background:var(--danger);color:#fff}
+
+/* Forms */
+label{display:block;font-size:.9rem;margin-bottom:.25rem}
+input[type=text],textarea,select{width:100%;padding:.5rem .6rem;border-radius:8px;border:1px solid #e6eef8}
+
+/* Accessibility */
+:focus{outline:none}
+:focus-visible{outline:3px solid rgba(13,110,253,0.18);outline-offset:2px;border-radius:8px}
+
+/* Utilities */
+.muted{color:var(--muted)}
+.small{font-size:.85rem}
+
+/* Responsive tweaks */
+@media (max-width:640px){
+	main.container{padding:18px;border-radius:10px}
+	h1{font-size:1.25rem}
+	.file-upload{flex-direction:column;align-items:stretch}
+}
+
+/* Print friendly */
+@media print{body{background:#fff}main.container{box-shadow:none}}
+
+/* Upload progress and preview */
+.upload-status{display:block}
+.upload-status .progress{background:linear-gradient(90deg,#f4f8ff,#f8fbff);border-radius:8px;border:1px solid #e6eef8}
+.upload-status .progress-bar{background:linear-gradient(90deg,var(--primary),var(--primary-600));transition:width 120ms linear;color:#fff;font-weight:700}
+#progressCount{min-width:48px;text-align:center}
+.results{background:#fbfdff;border:1px solid #eef4fb;padding:14px;border-radius:10px}
+.results img{display:block;max-width:320px;margin-top:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.04)}
+.results .small{margin-bottom:6px}
+
+
+/* End of stylesheet */
