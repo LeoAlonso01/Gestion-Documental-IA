@@ -58,4 +58,29 @@ const dropzone=document.getElementById('dropzone'); if(dropzone){ const fileInpu
 
 function showFilename(files){ const dropFilename=document.getElementById('dropFilename'); const dropzone=document.getElementById('dropzone'); if(!files||files.length===0){ if(dropFilename){ dropFilename.style.display='none'; dropFilename.textContent=''; } if(dropzone) dropzone.classList.remove('has-file'); return; } if(files.length===1){ const name=files[0].name; dropFilename.textContent=`Archivo: ${name}`; } else { const first=files[0].name; dropFilename.textContent=`${files.length} archivos — ${first} (+${files.length-1})`; } dropFilename.style.display='block'; if(dropzone) dropzone.classList.add('has-file'); }
 
-const uploadBtn=document.getElementById('uploadBtn'); if(uploadBtn) uploadBtn.addEventListener('click',uploadDocument); const fileLabel=document.querySelector('label[for="fileInput"]'); const fileInput=document.getElementById('fileInput'); if(fileLabel && fileInput) fileLabel.addEventListener('click',()=>fileInput.click()); if(fileInput) fileInput.addEventListener('change',(e)=>{ const files=e.target.files; if(files && files.length) showFilename(files); else showFilename(null); });
+const uploadBtn=document.getElementById('uploadBtn');
+if(uploadBtn) uploadBtn.addEventListener('click',uploadDocument);
+const fileLabel=document.querySelector('label[for="fileInput"]');
+const fileInput=document.getElementById('fileInput');
+if(fileLabel && fileInput) fileLabel.addEventListener('click',()=>fileInput.click());
+if(fileInput) fileInput.addEventListener('change',(e)=>{ const files=e.target.files; if(files && files.length) showFilename(files); else showFilename(null); });
+
+// Simple hash-based routing for hosted site
+function showPage(name){
+  document.querySelectorAll('.page').forEach(el=>el.style.display='none');
+  const el=document.getElementById(name);
+  if(el) el.style.display='block';
+  document.querySelectorAll('.site-nav .nav-link').forEach(a=>a.classList.remove('active'));
+  const selector = name === 'home' ? '.site-nav .nav-link[href="#/"]' : `.site-nav .nav-link[href="#/${name}"]`;
+  const link=document.querySelector(selector);
+  if(link) link.classList.add('active');
+}
+
+function routeFromHash(){
+  const hash = location.hash.replace('#/','');
+  const name = hash === '' ? 'home' : hash;
+  showPage(name);
+}
+
+window.addEventListener('hashchange', routeFromHash);
+document.addEventListener('DOMContentLoaded', routeFromHash);

@@ -109,5 +109,10 @@ input[type=text],textarea,select{width:100%;padding:.5rem .6rem;border-radius:8p
 .results img{display:block;max-width:320px;margin-top:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.04)}
 .results .small{margin-bottom:6px}
 
+/* Site navigation */
+.site-nav .nav-link{color:var(--muted);margin-right:12px}
+.site-nav .nav-link.active{color:var(--primary);font-weight:600}
+.site-nav .navbar-brand{font-weight:700;color:var(--text)}
+
 
 /* End of stylesheet */

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Documents — Gestion Documental IA</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+  <header class="mb-4">
+    <nav class="site-nav navbar navbar-expand bg-white shadow-sm rounded p-2">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Gestion Documental IA</a>
+        <div class="nav">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="upload.html">Upload</a>
+          <a class="nav-link" href="docs.html">Documents</a>
+          <a class="nav-link" href="about.html">About</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container mt-2">
+    <h1>Documents</h1>
+    <p>List of uploaded documents will appear here.</p>
+    <div class="doc-grid" id="docGrid"></div>
+  </main>
+
+  <script>
+    (function(){
+      const links=document.querySelectorAll('.site-nav .nav-link');
+      links.forEach(a=>{ if(location.pathname.endsWith(a.getAttribute('href'))){ a.classList.add('active'); } });
+    })();
+  </script>
+</body>
+</html>

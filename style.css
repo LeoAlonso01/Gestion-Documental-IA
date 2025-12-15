@@ -37,6 +37,11 @@ main.container{
 h1{font-size:1.6rem;margin:.25rem 0 0.6rem}
 p{margin:.25rem 0 1rem;color:var(--muted)}
 
+/* Site navigation */
+.site-nav .nav-link{color:var(--muted);margin-right:12px}
+.site-nav .nav-link.active{color:var(--primary);font-weight:600}
+.site-nav .navbar-brand{font-weight:700;color:var(--text)}
+
 /* File upload styles */
 .file-upload{
 	display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:12px

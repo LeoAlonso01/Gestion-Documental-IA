@@ -219,3 +219,23 @@ if(fileInput) fileInput.addEventListener('change', (e)=>{ // Escucha el evento '
     if(files && files.length) showFilename(files); // Si hay archivos, los muestra en la zona de arrastrar y soltar.
     else showFilename(null); // Si no hay archivos, limpia la visualización.
 });
+
+// Simple hash-based routing
+function showPage(name){
+    document.querySelectorAll('.page').forEach(el=>el.style.display='none');
+    const el=document.getElementById(name);
+    if(el) el.style.display='block';
+    document.querySelectorAll('.site-nav .nav-link').forEach(a=>a.classList.remove('active'));
+    const selector = name === 'home' ? '.site-nav .nav-link[href="#/"]' : `.site-nav .nav-link[href="#/${name}"]`;
+    const link=document.querySelector(selector);
+    if(link) link.classList.add('active');
+}
+
+function routeFromHash(){
+    const hash = location.hash.replace('#/','');
+    const name = hash === '' ? 'home' : hash;
+    showPage(name);
+}
+
+window.addEventListener('hashchange', routeFromHash);
+document.addEventListener('DOMContentLoaded', routeFromHash);
