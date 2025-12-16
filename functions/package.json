@@ -1,0 +1,25 @@
+{
+  "name": "gd-ia-functions",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
+    "firebase-admin": "^11.10.0",
+    "googleapis": "^131.0.0",
+    "@google-cloud/storage": "^6.11.0",
+    "@google-cloud/vision": "^3.5.0",
+    "crypto": "^1.0.1"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "description": "Document processing Cloud Function (MVP)",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
+}

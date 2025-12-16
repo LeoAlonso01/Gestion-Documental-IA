@@ -35,7 +35,7 @@ main.container{
 }
 
 h1{font-size:1.6rem;margin:.25rem 0 0.6rem}
-p{margin:.25rem 0 1rem;color:var(--muted)}
+p, li, ul {margin:.25rem 0 1rem;color:var(--muted)}
 
 /* File upload styles */
 .file-upload{
@@ -68,6 +68,15 @@ p{margin:.25rem 0 1rem;color:var(--muted)}
 .doc-card .meta{font-size:.85rem;color:var(--muted)}
 .doc-card .actions{margin-top:auto;display:flex;gap:8px}
 
+/* Document list table (dummy docs) */
+.doc-table{border-collapse:separate;border-spacing:0;width:100%;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid #eef4fb;border-radius:10px;overflow:hidden}
+.doc-table thead th{background:linear-gradient(180deg,#fbfdff,#f7fbff);padding:12px 14px;text-align:left;font-weight:700;color:var(--text);font-size:.95rem;border-bottom:1px solid #eef4fb}
+.doc-table tbody td{padding:12px 14px;border-bottom:1px solid #f4f8ff;vertical-align:middle}
+.doc-table tbody tr:last-child td{border-bottom:none}
+.doc-table .title{font-weight:600;color:var(--text)}
+.doc-table .btn{padding:.35rem .6rem;font-size:.85rem}
+
+
 /* Search & utilities */
 .search-bar{display:flex;gap:8px;align-items:center}
 .search-bar input{flex:1;padding:.45rem .6rem;border-radius:8px;border:1px solid #e6eef8}
@@ -90,6 +99,16 @@ input[type=text],textarea,select{width:100%;padding:.5rem .6rem;border-radius:8p
 .muted{color:var(--muted)}
 .small{font-size:.85rem}
 
+/* buttons styles */
+.btn{font-weight:600;padding:.45rem .8rem;border-radius:8px;border:1px solid transparent;cursor:pointer}
+.btn-ghost{background:transparent;border:1px solid #e6eef8;color:var(--text)}
+.btn-primary{background:var(--primary);color:#fff}
+.btn-danger{background:var(--danger);color:#fff}
+
+/* auth styles */
+.auth-links{text-align:right;margin-top:12px}
+
+
 /* Responsive tweaks */
 @media (max-width:640px){
 	main.container{padding:18px;border-radius:10px}
@@ -103,6 +122,13 @@ input[type=text],textarea,select{width:100%;padding:.5rem .6rem;border-radius:8p
 /* Upload progress and preview */
 .upload-status{display:block}
 .upload-status .progress{background:linear-gradient(90deg,#f4f8ff,#f8fbff);border-radius:8px;border:1px solid #e6eef8}
+
+/* Login / Auth styles */
+.auth-page{max-width:520px;margin:20px auto}
+.auth-card{background:var(--surface);padding:20px;border-radius:12px;border:1px solid #eef4fb;box-shadow:0 6px 20px rgba(15,23,42,0.04)}
+.auth-card input{margin-bottom:.6rem;padding:.5rem;border-radius:8px;border:1px solid #e6eef8}
+.auth-card .divider{text-align:center}
+
 .upload-status .progress-bar{background:linear-gradient(90deg,var(--primary),var(--primary-600));transition:width 120ms linear;color:#fff;font-weight:700}
 #progressCount{min-width:48px;text-align:center}
 .results{background:#fbfdff;border:1px solid #eef4fb;padding:14px;border-radius:10px}

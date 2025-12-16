@@ -18,6 +18,7 @@
           <a class="nav-link" href="docs.html">Documents</a>
           <a class="nav-link" href="about.html">About</a>
         </div>
+        <div id="authArea" class="ms-3"></div>
       </div>
     </nav>
   </header>
@@ -48,9 +49,20 @@
     </div>
 
     <!-- Results -->
-    <div class="results mt-5" id="results" style="display:none">
-      <h2>Upload Results</h2>
-      <div id="resultContent"></div>
+    <div class="results mt-5 container" id="results" style="display:none">
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Upload Results</h2>
+          <div id="resultContent"></div>
+        </div>
+        <div class="col-md-6">
+          <h2>Acciones / Revisión</h2>
+          <div class="d-flex flex-column align-items-start" style="gap:.6rem;">
+            <button type="button" class="btn btn-primary" id="reviewBtn">Revisar con IA</button>
+            <div id="botonResult" class="mt-3"></div>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 

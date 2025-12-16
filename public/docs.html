@@ -18,20 +18,58 @@
           <a class="nav-link" href="docs.html">Documents</a>
           <a class="nav-link" href="about.html">About</a>
         </div>
+        <div id="authArea" class="ms-3"></div>
       </div>
     </nav>
   </header>
 
   <main class="container mt-2">
     <h1>Documents</h1>
+    <script type="module" src="scripts.js?v=2"></script>
     <p>List of uploaded documents will appear here.</p>
-    <div class="doc-grid" id="docGrid"></div>
+
+    <div class="doc-grid mt-3" id="docGrid" aria-live="polite"></div>
+
+    <div id="docsEmpty" class="muted small" style="display:none;margin-top:10px">No documents found.</div>
   </main>
 
   <script>
     (function(){
       const links=document.querySelectorAll('.site-nav .nav-link');
       links.forEach(a=>{ if(location.pathname.endsWith(a.getAttribute('href'))){ a.classList.add('active'); } });
+    })();
+
+    // Dummy documents cards population with simple alert actions
+    (function(){
+      const dummy = [
+        {title:'Contrato_01.pdf', user:'Ana Pérez', date:'2025-12-01', size_kb:245},
+        {title:'Informe_Mensual.docx', user:'Carlos Ruiz', date:'2025-11-20', size_kb:1024},
+        {title:'ImagenEjemplo.png', user:'Leo Alonso', date:'2025-10-02', size_kb:560}
+      ];
+      const grid = document.getElementById('docGrid');
+      const empty = document.getElementById('docsEmpty');
+      if(!grid) return;
+      if(dummy.length===0){ empty.style.display='block'; return; }
+      empty.style.display='none';
+      dummy.forEach(d=>{
+        const card = document.createElement('div');
+        card.className = 'doc-card';
+        card.innerHTML = `
+          <div class="title">${d.title}</div>
+          <div class="meta small muted">By ${d.user} · ${d.date}</div>
+          <div class="meta small muted">Size: ${(d.size_kb/1024).toFixed(2)} MB</div>
+          <div class="actions">
+            <button class="btn btn-ghost btn-sm viewBtn">View</button>
+            <button class="btn btn-primary btn-sm ms-2 reviewBtn">Review</button>
+          </div>
+        `;
+        grid.appendChild(card);
+
+        const viewBtn = card.querySelector('.viewBtn');
+        const reviewBtn = card.querySelector('.reviewBtn');
+        if(viewBtn) viewBtn.addEventListener('click', ()=>{ alert('View (simulado): ' + d.title); });
+        if(reviewBtn) reviewBtn.addEventListener('click', ()=>{ alert('Review con IA (simulado) para: ' + d.title); });
+      });
     })();
   </script>
 </body>
